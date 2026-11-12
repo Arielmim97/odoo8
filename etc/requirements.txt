@@ -1,0 +1,8 @@
+# -----------------------
+# | Add Python packages |
+# -----------------------
+# Python 2.7 only. The odoo:8.0 image has no pip3 and no working apt mirrors.
+# Uncomment a package below, then restart: docker compose up -d
+# If pip is missing inside the image, install it before relying on this file.
+# -----------------------
+# paramiko==1.18.5
