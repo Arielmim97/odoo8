@@ -2,6 +2,11 @@
 
 set -e
 
+# openerp-server refuses to run as root.
+if [ "$(id -u)" = "0" ]; then
+    exec su -s /bin/bash odoo -c "exec /bin/bash /entrypoint.sh $(printf '%q ' "$@")"
+fi
+
 # Odoo 8 image (Debian Jessie, Python 2.7). Do not apt-get or pip3 here:
 # Jessie mirrors are archived and the image has no Python 3.
 

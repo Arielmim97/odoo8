@@ -13,8 +13,9 @@ services:
   odoo8:
     image: odoo:8.0
     # odoo:8.0 (2017) only publishes linux/amd64. Apple Silicon needs emulation.
+    # The image aborts with "Running as user 'root' is a security risk".
     platform: linux/amd64
-    user: root
+    user: odoo
     depends_on:
       - db
     ports:
